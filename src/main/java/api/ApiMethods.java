@@ -1,4 +1,4 @@
-package adApiTest;
+package api;
 
 import org.json.simple.JSONObject;
 import io.restassured.RestAssured;

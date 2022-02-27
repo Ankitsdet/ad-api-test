@@ -1,4 +1,4 @@
-package adApiTest;
+package api;
 
 import org.junit.Assert;
 import org.testng.annotations.Test;
