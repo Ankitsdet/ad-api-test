@@ -29,7 +29,7 @@ public class ApiMethods {
 
 	}
 
-	public Response updateAdByName(String id, String name) {
+	public Response updateAd(String id, String name, String street, int room, double price, boolean status) {
 
 		RestAssured.baseURI = baseURL;
 
@@ -37,6 +37,10 @@ public class ApiMethods {
 
 		JSONObject updateRequestParams = new JSONObject();
 		updateRequestParams.put("name", name);
+		updateRequestParams.put("street", street);
+		updateRequestParams.put("room", room);
+		updateRequestParams.put("price", price);
+		updateRequestParams.put("status", status);
 
 		request.header("Content-Type", "application/json");
 		request.body(updateRequestParams.toJSONString());
@@ -47,23 +51,4 @@ public class ApiMethods {
 
 	}
 	
-	
-	public Response updateAdByStreet(String id, String Street) {
-
-		RestAssured.baseURI = baseURL;
-
-		RequestSpecification request = RestAssured.given();
-
-		JSONObject updateRequestParams = new JSONObject();
-		updateRequestParams.put("street", Street);
-
-		request.header("Content-Type", "application/json");
-		request.body(updateRequestParams.toJSONString());
-
-		Response updatedResponse = request.put("/advertisements/" + id);
-
-		return updatedResponse;
-
-	}
-
 }
